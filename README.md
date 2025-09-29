@@ -81,7 +81,6 @@ StreamPredict/
 ├── model_train.py               # 模型训练主脚本
 ├── predict.py                   # 流量预测主脚本
 ├── requirements.txt             # 项目依赖包列表
-├── test.py                      # 测试脚本
 └── README.md                    # 项目说明文档
 ```
 
