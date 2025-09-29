@@ -1,0 +1,36 @@
+# StreamPredict 项目依赖包
+
+# 深度学习框架
+torch>=1.8.0
+torchvision>=0.9.0
+
+# 数据处理与科学计算
+pandas>=1.2.0
+numpy>=1.19.0
+
+# 机器学习库
+scikit-learn>=0.24.0
+
+# 数据可视化
+matplotlib>=3.3.0
+
+# 模型持久化
+joblib>=1.0.0
+
+# 进度条显示
+tqdm>=4.60.0
+
+# 类型提示支持
+typing-extensions>=3.7.4
+
+
+# 日期时间处理
+python-dateutil>=2.8.0
+
+# 文件系统操作
+glob2>=0.7
+
+# 标准库扩展（通常已包含在Python中，但为确保兼容性）
+# os - 内置库
+# datetime - 内置库
+# pathlib - 内置库（Python 3.4+)
