@@ -8,6 +8,7 @@ from utils.read_features_predict import creat_temp_data
 from utils.check_time_continuous import check_time_continuous
 import matplotlib.pyplot as plt
 import matplotlib as mpl
+from utils import plot_data
 
 def main(model_path:str=config.model_save_file,data_file:str=config.data_predict_file+'/features.csv',
          temp_data_file:str=config.data_predict_file+'/temp.csv',sequence_length=config.sequence_length,tandard_scalar=config.standard_scalar_file):
@@ -44,15 +45,10 @@ def write_data(all_data,output_path):
     df = pd.DataFrame(all_data)
     df.to_csv(output_path,index=False,header=cloumns)
 
-def plot_data(all_data):
-    x=range(len(all_data))
-    plt.plot(x,np.array(all_data)[:,-1])
-    plt.xlabel('序列索引')
-    plt.ylabel('流量')
-    plt.title('预测结果')
-    plt.show()
 
 if __name__ == '__main__':
     all_data = main()
     write_data(all_data,config.data_predict_file+'/result.csv')
-    plot_data(all_data)
+    target_data_df = pd.read_csv(config.data_predict_file+'/features.csv')
+    target_data = target_data_df['雁翅5min洪水流量摘录'].tolist()
+    plot_data.plot_data(all_data,target_data)
