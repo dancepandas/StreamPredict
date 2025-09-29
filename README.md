@@ -404,4 +404,4 @@ MIT License - 详见 [LICENSE](LICENSE) 文件
 
 如有问题或建议，请通过以下方式联系:
 - 提交 GitHub Issue
-- 发送邮件至项目维护者
+- 发送邮件至Chs9710@163.com
