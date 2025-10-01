@@ -11,9 +11,9 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 
-from DataProcess import  DataProcess
+from src.DataProcess import  DataProcess
 
-from Model import StreamModel
+from src.Model import StreamModel
 import config
 
 
@@ -154,8 +154,6 @@ class StreamModelTrainer(object):
             loss = rmse_loss(targets, predictions)
 
 
-            loss.backward()
-
             # 反向传播
             loss.backward()
 
@@ -240,7 +238,7 @@ class StreamModelTrainer(object):
             train_loss = self.train_epoch(train_loader, optimizer)
 
             # 验证
-            val_loss,val_loss_rmse = self.validate_epoch(val_loader)
+            val_loss = self.validate_epoch(val_loader)
 
 
             # 学习率调度
@@ -250,7 +248,7 @@ class StreamModelTrainer(object):
             self.train_losses.append(train_loss)
             self.val_losses.append(val_loss)
 
-            print(f"训练损失1-nse: {train_loss:.6f}, 验证损失rmse: {val_loss_rmse:.6f}")
+            print(f"训练损失1-nse: {train_loss:.6f}, 验证损失rmse: {val_loss:.6f}")
             print(f"当前学习率: {optimizer.param_groups[0]['lr']:.8f}")
 
             # 保存最佳模型
@@ -434,7 +432,7 @@ class StreamModelTrainer(object):
 if __name__ == '__main__':
     # 使用示例
     trainer = StreamModelTrainer(
-        data_file=r'D:\PycharmProjects\StreamPredict\merged_all_data.csv',
+        data_file=r'D:\PycharmProjects\StreamPredict\data\merged_all_data.csv',
     standard_scalar_file = r'D:\PycharmProjects\StreamPredict\standard_scalar')
 
     # 准备数据
